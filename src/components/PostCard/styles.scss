@@ -1,11 +1,9 @@
 .post-card-container {
   padding: 16px;
-  border: 1px solid gray;
-  border-radius: 4px;
   display: flex;
   flex-direction: column;
   background: whitesmoke;
-
+  cursor: pointer;
   &:hover {
     background: #e2e2e2;
   }
@@ -51,14 +49,8 @@
 }
 
 .post-card-seen {
-  width: 15px;
-  height: 15px;
-  background: red;
-  border-radius: 100%;
-  margin-right: 10px;
-}
-
-.post-card-buttons {
-  display: flex;
-  align-items: center;
+  margin-left: 10px;
+  color: red;
+  font-weight: bold;
+  font-size: 12px;
 }

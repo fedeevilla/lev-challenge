@@ -7,7 +7,6 @@ import { deletePost, selectPost } from "../../store/actions/posts";
 
 const PostCard = ({ post }: { post: IPost }): JSX.Element => {
   const dispatch = useDispatch();
-  const postDate = moment(post.created * 1000);
 
   const handleSelect = () => {
     dispatch(selectPost(post.id));
@@ -18,20 +17,18 @@ const PostCard = ({ post }: { post: IPost }): JSX.Element => {
   };
 
   return (
-    <div className="post-card-container">
+    <div className="post-card-container" onClick={() => handleSelect()}>
       <div className="post-card-header">
         <div>
-          <span className="post-card-author" onClick={() => handleSelect()}>
-            {post.author}
-          </span>
+          <span className="post-card-author">{post.author}</span>
           <span className="post-card-date">
-            ({moment(postDate, "YYYYMMDD").fromNow()})
+            ({moment(moment(post.created), "YYYYMMDD").fromNow()})
           </span>
+          {!post.visited && <span className="post-card-seen">New!</span>}
         </div>
-        <div className="post-card-buttons">
-          {!post.visited && <div className="post-card-seen"></div>}
-          <button onClick={() => handleDelete()}>X</button>
-        </div>
+        <button className="delete-button" onClick={() => handleDelete()}>
+          Dismiss
+        </button>
       </div>
       <div className="post-card-content">
         {post.thumbnail && (

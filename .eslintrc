@@ -34,8 +34,7 @@
         "semi": true,
         "tabWidth": 2,
         "singleQuote": false,
-        "bracketSpacing": true,
-        "jsxBracketSameLine": true
+        "bracketSpacing": true
       }
     ],
     "no-unused-vars": [
