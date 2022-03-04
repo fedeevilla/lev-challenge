@@ -32,7 +32,7 @@ const PostDetails = ({ post }: { post: IPost }): JSX.Element => {
       {post?.num_comments && (
         <h3 className="comments-post">{`${post?.num_comments} comments.`}</h3>
       )}
-      {showModal && (
+      {showModal && post.thumbnail && (
         <ModalImage
           show={showModal}
           src={post.thumbnail}

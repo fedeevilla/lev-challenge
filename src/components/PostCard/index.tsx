@@ -68,7 +68,7 @@ const PostCard = ({ post }: { post: IPost }): JSX.Element => {
           </Button>
         </div>
       </div>
-      {showModal && (
+      {showModal && post.thumbnail && (
         <ModalImage
           show={showModal}
           src={post.thumbnail}
