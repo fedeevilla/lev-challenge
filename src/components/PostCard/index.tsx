@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import moment from "moment";
 import { IPost } from "./types";
 import "./styles.scss";
 import { useDispatch } from "react-redux";
 import { deletePost, selectPost } from "../../store/actions/posts";
+import ModalImage from "../ModalImage";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
 
 const PostCard = ({ post }: { post: IPost }): JSX.Element => {
   const dispatch = useDispatch();
+  const [showModal, setsShowModal] = useState<boolean>(false);
 
   const handleSelect = () => {
     dispatch(selectPost(post.id));
@@ -17,31 +21,47 @@ const PostCard = ({ post }: { post: IPost }): JSX.Element => {
   };
 
   return (
-    <div className="post-card-container" onClick={() => handleSelect()}>
-      <div className="post-card-header">
-        <div>
-          <span className="post-card-author">{post.author}</span>
-          <span className="post-card-date">
-            ({moment(moment(post.created), "YYYYMMDD").fromNow()})
-          </span>
-          {!post.visited && <span className="post-card-seen">New!</span>}
+    <>
+      <div className="post-card-container">
+        <div className="post-card-header">
+          <div>
+            <span className="post-card-author">{post.author}</span>
+            <span className="post-card-date">
+              ({moment(moment(post.created), "YYYYMMDD").fromNow()})
+            </span>
+            {!post.visited && <span className="post-card-seen">New!</span>}
+          </div>
+          <button className="delete-button" onClick={() => handleDelete()}>
+            <FontAwesomeIcon icon={faXmarkCircle} size="lg" color="red" />
+          </button>
         </div>
-        <button className="delete-button" onClick={() => handleDelete()}>
-          Dismiss
-        </button>
+        <div className="post-card-content">
+          {post.thumbnail && (
+            <img
+              alt=""
+              src={post.thumbnail}
+              className="thumbnail"
+              onClick={() => setsShowModal(true)}
+            />
+          )}
+          <span className="post-card-title" onClick={() => handleSelect()}>
+            {post.title}
+          </span>
+        </div>
+        <div className="post-card-footer">
+          <span className="post-card-comments">
+            Comments: {post.num_comments}
+          </span>
+        </div>
       </div>
-      <div className="post-card-content">
-        {post.thumbnail && (
-          <img alt="" src={post.thumbnail} className="thumbnail" />
-        )}
-        <span>{post.title}</span>
-      </div>
-      <div className="post-card-footer">
-        <span className="post-card-comments">
-          Comments: {post.num_comments}
-        </span>
-      </div>
-    </div>
+      {showModal && (
+        <ModalImage
+          show={showModal}
+          src={post.thumbnail}
+          setsShowModal={setsShowModal}
+        />
+      )}
+    </>
   );
 };
 
