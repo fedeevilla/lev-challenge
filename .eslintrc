@@ -29,6 +29,7 @@
     "prettier/prettier": [
       "warn",
       {
+        "endOfLine": "auto",
         "trailingComma": "none",
         "semi": true,
         "tabWidth": 2,

@@ -2,6 +2,8 @@ import {
   FETCH_POSTS_RESOLVED,
   FETCH_POSTS_STARTED,
   FETCH_POSTS_REJECTED,
+  DELETE_POST_RESOLVED,
+  SELECT_POST_RESOLVED,
 } from "../actions/posts";
 
 const initialState = {
@@ -26,6 +28,20 @@ export const posts = (state = initialState, { type, payload = {} }) => {
       return {
         ...state,
         isFetching: false,
+      };
+    case DELETE_POST_RESOLVED:
+      return {
+        ...state,
+        list: state.list.filter((post) => post.id !== payload),
+      };
+    case SELECT_POST_RESOLVED:
+      return {
+        ...state,
+        list: state.list.map((post) => {
+          if (post.id === payload) return { ...post, visited: true };
+          else return post;
+        }),
+        selected: state.list.find((post) => post.id === payload),
       };
     default:
       return state;

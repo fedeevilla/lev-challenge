@@ -1,0 +1,16 @@
+.app {
+  display: flex;
+}
+
+.post-list {
+  max-width: 500px;
+  width: 100%;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-details {
+  width: 100%;
+  flex: 1;
+}
