@@ -1,6 +1,7 @@
 import { faDownload, faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import Button from "../Button";
 import "./styles.scss";
 import { IModalImage } from "./types";
 
@@ -11,12 +12,9 @@ const ModalImage = ({ show, src, setsShowModal }: IModalImage): JSX.Element => {
     <div className={showHideClassName}>
       <section className="modal-main">
         <div className="button-container">
-          <button
-            className="delete-button"
-            onClick={() => setsShowModal(false)}
-          >
+          <Button styleType="clear" onClick={() => setsShowModal(false)}>
             <FontAwesomeIcon icon={faXmarkCircle} size="lg" color="red" />
-          </button>
+          </Button>
         </div>
         <img className="modal-image" src={src} alt="" />
         <div className="download-container">

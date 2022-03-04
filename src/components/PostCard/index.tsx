@@ -7,6 +7,7 @@ import { deletePost, selectPost } from "../../store/actions/posts";
 import ModalImage from "../ModalImage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
+import Button from "../Button";
 
 const PostCard = ({ post }: { post: IPost }): JSX.Element => {
   const dispatch = useDispatch();
@@ -31,9 +32,9 @@ const PostCard = ({ post }: { post: IPost }): JSX.Element => {
             </span>
             {!post.visited && <span className="post-card-seen">New!</span>}
           </div>
-          <button className="delete-button" onClick={() => handleDelete()}>
+          <Button styleType="clear" onClick={() => handleDelete()}>
             <FontAwesomeIcon icon={faXmarkCircle} size="lg" color="red" />
-          </button>
+          </Button>
         </div>
         <div className="post-card-content">
           {post.thumbnail && (

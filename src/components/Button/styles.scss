@@ -1,0 +1,41 @@
+.primary-button {
+  background: #d95d34;
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  color: #ffffff;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border: none;
+  &:hover {
+    background: #fc933c;
+    text-decoration: none;
+  }
+}
+
+.danger-button {
+  background: red;
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  color: #ffffff;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border: none;
+  &:hover {
+    background: #fc933c;
+    text-decoration: none;
+  }
+}
+
+.clear-button {
+  cursor: pointer;
+  background: none;
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  color: #ffffff;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border: none;
+}

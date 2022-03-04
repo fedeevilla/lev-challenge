@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { dismissAllPosts } from "../../store/actions/posts";
+import { dismissAllPosts, fetchPosts } from "../../store/actions/posts";
 import { IRootState } from "../../store/types";
 import PostCard from "../PostCard";
+import Button from "../Button";
+import "./styles.scss";
 
 const PER_PAGE = 10;
 
@@ -24,15 +26,20 @@ const PostList = (): JSX.Element => {
   return (
     <div className="post-list">
       {list.length === 0 ? (
-        <h2 className="label-result">No results</h2>
+        <div className="label-container">
+          <h2 className="label-result">No results</h2>
+          <Button onClick={() => dispatch(fetchPosts())}>Load TOP posts</Button>
+        </div>
       ) : (
         renderedList.map((post) => <PostCard key={post.id} post={post} />)
       )}
       {list.length > 0 && (
-        <div>
-          <button onClick={() => handleDismissAll()}>Dismiss All Posts</button>
+        <div className="footer-buttons">
+          <Button onClick={() => handleDismissAll()} styleType="danger">
+            Dismiss All Posts
+          </Button>
           {countPosts < list.length && (
-            <button onClick={() => handleShowMore()}>Show More Posts</button>
+            <Button onClick={() => handleShowMore()}>Show More Posts</Button>
           )}
         </div>
       )}
