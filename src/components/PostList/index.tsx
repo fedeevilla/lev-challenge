@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { dismissAllPosts, fetchPosts } from "../../store/actions/posts";
-import { IRootState } from "../../store/types";
 import PostCard from "../PostCard";
 import Button from "../Button";
 import "./styles.scss";
+import { useSelector } from "../../hooks/useSelector";
 
 const PER_PAGE = 10;
 
 const PostList = (): JSX.Element => {
   const dispatch = useDispatch();
-  const { list } = useSelector((state: IRootState) => state.posts);
-  const [countPosts, setCountPost] = useState(PER_PAGE);
+  const { list } = useSelector(({ posts }) => posts);
+  const [countPosts, setCountPost] = useState<number>(PER_PAGE);
 
   const handleDismissAll = () => {
     dispatch(dismissAllPosts());
@@ -20,7 +20,6 @@ const PostList = (): JSX.Element => {
   const handleShowMore = () => {
     setCountPost((countPosts) => countPosts + PER_PAGE);
   };
-
   const renderedList = list.slice(0, countPosts);
 
   return (
