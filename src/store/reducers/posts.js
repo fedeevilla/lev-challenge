@@ -6,7 +6,7 @@ import {
 
 const initialState = {
   list: [],
-  loading: false,
+  isFetching: false,
 };
 
 export const posts = (state = initialState, { type, payload = {} }) => {
@@ -14,18 +14,18 @@ export const posts = (state = initialState, { type, payload = {} }) => {
     case FETCH_POSTS_STARTED:
       return {
         ...state,
-        loading: true,
+        isFetching: true,
       };
     case FETCH_POSTS_RESOLVED:
       return {
         ...state,
-        list: [],
-        loading: false,
+        list: payload,
+        isFetching: false,
       };
     case FETCH_POSTS_REJECTED:
       return {
         ...state,
-        loading: false,
+        isFetching: false,
       };
     default:
       return state;

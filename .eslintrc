@@ -26,17 +26,17 @@
     "react/display-name": "off",
     "no-console": "off",
     "react/prop-types": "off",
-    // "prettier/prettier": [
-    //   "error",
-    //   {
-    //     "trailingComma": "none",
-    //     "semi": true,
-    //     "tabWidth": 2,
-    //     "singleQuote": false,
-    //     "bracketSpacing": true,
-    //     "jsxBracketSameLine": true
-    //   }
-    // ],
+    "prettier/prettier": [
+      "warn",
+      {
+        "trailingComma": "none",
+        "semi": true,
+        "tabWidth": 2,
+        "singleQuote": false,
+        "bracketSpacing": true,
+        "jsxBracketSameLine": true
+      }
+    ],
     "no-unused-vars": [
       "warn",
       {
@@ -69,7 +69,7 @@
       }
     ],
     "padding-line-between-statements": [
-      "error",
+      "warn",
       { "blankLine": "always", "prev": "*", "next": "return" },
       { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
       {
