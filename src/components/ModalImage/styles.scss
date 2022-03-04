@@ -39,3 +39,15 @@
 .modal-image {
   border-radius: 8px;
 }
+
+.download-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+  margin-bottom: 4px;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}

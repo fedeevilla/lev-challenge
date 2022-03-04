@@ -1,4 +1,4 @@
-import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
+import { faDownload, faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import "./styles.scss";
@@ -18,7 +18,13 @@ const ModalImage = ({ show, src, setsShowModal }: IModalImage): JSX.Element => {
             <FontAwesomeIcon icon={faXmarkCircle} size="lg" color="red" />
           </button>
         </div>
-        <img className="modal-image" src={src} alt=""></img>
+        <img className="modal-image" src={src} alt="" />
+        <div className="download-container">
+          <a href={src} download target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={faDownload} size="lg" color="black" />{" "}
+            Download Image
+          </a>
+        </div>
       </section>
     </div>
   );
