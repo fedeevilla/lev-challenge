@@ -15,6 +15,10 @@ const PostCard = ({ post }: { post: IPost }): JSX.Element => {
 
   const handleSelect = () => {
     dispatch(selectPost(post.id));
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   const handleDelete = () => {

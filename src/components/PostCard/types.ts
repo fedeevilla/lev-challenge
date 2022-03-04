@@ -6,4 +6,5 @@ export interface IPost {
   thumbnail: string | null;
   num_comments: number;
   visited: boolean;
+  selftext: string;
 }
