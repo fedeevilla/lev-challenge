@@ -9,6 +9,18 @@
   }
 }
 
+@media (max-width: 800px) {
+  .post-card-container {
+    width: 200px;
+  }
+
+  .post-title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
 .post-card-header {
   display: flex;
   justify-content: space-between;
@@ -63,4 +75,8 @@
 .viewpost-button {
   font-size: 12px;
   padding: 6px 8px !important;
+}
+
+.dismiss-button {
+  padding: 0px !important;
 }

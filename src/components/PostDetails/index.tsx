@@ -1,5 +1,6 @@
-import moment from "moment";
 import React from "react";
+import moment from "moment";
+
 import { IPost } from "../PostCard/types";
 import "./styles.scss";
 
@@ -18,7 +19,7 @@ const PostDetails = ({ post }: { post: IPost }): JSX.Element => {
       )}
       {post?.thumbnail && (
         <div className="image-container">
-          <img src={post?.thumbnail} alt="" />
+          <img alt="" src={post?.thumbnail} />
         </div>
       )}
       {post?.selftext && <h3 className="selftext-post">{post?.selftext}</h3>}

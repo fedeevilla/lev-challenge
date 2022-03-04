@@ -9,7 +9,7 @@ export default function configureStore() {
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
   const store = {
-    ...createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
+    ...createStore(rootReducer, composeEnhancers(applyMiddleware(thunk))),
   };
 
   return store;

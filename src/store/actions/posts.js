@@ -27,15 +27,14 @@ export const fetchPosts = () => async (dispatch) => {
   try {
     dispatch({
       type: FETCH_POSTS_RESOLVED,
-      payload: children.map(({ data }) => {
-        return {
-          ...data,
-          thumbnail: data.thumbnail === "self" ? null : data.thumbnail,
-          created: data.created * 1000,
-        };
-      }),
+      payload: children.map(({ data }) => ({
+        ...data,
+        thumbnail: data.thumbnail === "self" ? null : data.thumbnail,
+        created: data.created * 1000,
+      })),
     });
   } catch (e) {
+    // eslint-disable-next-line no-console
     console.error(e);
     dispatch({
       type: FETCH_POSTS_REJECTED,

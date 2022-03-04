@@ -36,8 +36,12 @@ const PostCard = ({ post }: { post: IPost }): JSX.Element => {
             </span>
             {!post.visited && <span className="post-card-seen">New!</span>}
           </div>
-          <Button styleType="clear" onClick={() => handleDelete()}>
-            <FontAwesomeIcon icon={faXmarkCircle} size="lg" color="red" />
+          <Button
+            className="dismiss-button"
+            styleType="clear"
+            onClick={() => handleDelete()}
+          >
+            <FontAwesomeIcon color="red" icon={faXmarkCircle} size="lg" />
           </Button>
         </div>
         <div className="post-card-content">
@@ -49,7 +53,7 @@ const PostCard = ({ post }: { post: IPost }): JSX.Element => {
               onClick={() => setsShowModal(true)}
             />
           )}
-          <span>{post.title}</span>
+          <span className="post-title">{post.title}</span>
         </div>
         <div className="post-card-footer">
           <span className="post-card-comments">
