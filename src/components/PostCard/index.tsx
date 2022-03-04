@@ -45,14 +45,19 @@ const PostCard = ({ post }: { post: IPost }): JSX.Element => {
               onClick={() => setsShowModal(true)}
             />
           )}
-          <span className="post-card-title" onClick={() => handleSelect()}>
-            {post.title}
-          </span>
+          <span>{post.title}</span>
         </div>
         <div className="post-card-footer">
           <span className="post-card-comments">
             Comments: {post.num_comments}
           </span>
+          <Button
+            styleType="success"
+            className="viewpost-button"
+            onClick={() => handleSelect()}
+          >
+            View Post
+          </Button>
         </div>
       </div>
       {showModal && (

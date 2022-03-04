@@ -20,6 +20,8 @@ const Button = ({
         return "danger-button";
       case "clear":
         return "clear-button";
+      case "success":
+        return "success-button";
       default:
         return "primary-button";
     }
@@ -27,7 +29,7 @@ const Button = ({
 
   return (
     <button
-      className={clsx(className, getStyleType())}
+      className={clsx(getStyleType(), className)}
       disabled={disabled}
       id={id}
       type={type}

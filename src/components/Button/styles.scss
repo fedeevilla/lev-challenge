@@ -1,4 +1,5 @@
 .primary-button {
+  cursor: pointer;
   background: #d95d34;
   -webkit-border-radius: 28;
   -moz-border-radius: 28;
@@ -14,6 +15,7 @@
 }
 
 .danger-button {
+  cursor: pointer;
   background: red;
   -webkit-border-radius: 28;
   -moz-border-radius: 28;
@@ -23,7 +25,7 @@
   text-decoration: none;
   border: none;
   &:hover {
-    background: #fc933c;
+    background: #ee4c4c;
     text-decoration: none;
   }
 }
@@ -38,4 +40,20 @@
   padding: 10px 20px 10px 20px;
   text-decoration: none;
   border: none;
+}
+
+.success-button {
+  cursor: pointer;
+  background: #048f22;
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  color: #ffffff;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border: none;
+  &:hover {
+    background: #00b809;
+    text-decoration: none;
+  }
 }

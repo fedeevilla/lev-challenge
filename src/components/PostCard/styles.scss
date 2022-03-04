@@ -26,13 +26,6 @@
   font-weight: bold;
 }
 
-.post-card-title {
-  cursor: pointer;
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
 .post-card-date {
   font-weight: 200;
   margin-left: 20px;
@@ -43,6 +36,10 @@
 .thumbnail {
   border-radius: 8px;
   margin-right: 12px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .post-card-comments {
@@ -53,6 +50,7 @@
 .post-card-footer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .post-card-seen {
@@ -60,4 +58,9 @@
   color: red;
   font-weight: bold;
   font-size: 12px;
+}
+
+.viewpost-button {
+  font-size: 12px;
+  padding: 6px 8px !important;
 }

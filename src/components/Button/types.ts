@@ -7,5 +7,5 @@ export interface IButton {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   id?: string;
   type?: "button" | "submit" | "reset";
-  styleType?: "primary" | "danger" | "clear";
+  styleType?: "primary" | "danger" | "clear" | "success";
 }
