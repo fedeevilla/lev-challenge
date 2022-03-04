@@ -21,7 +21,7 @@ export const fetchPosts = () => async (dispatch) => {
       data: { children },
     },
   } = await axios.get(
-    `https://www.reddit.com/r/${SUBREDDIT}/top.json?limit=${LIMIT}`,
+    `https://www.reddit.com/r/${SUBREDDIT}/top.json?limit=${LIMIT}`
   );
 
   try {

@@ -42,6 +42,7 @@ export const posts = (state = initialState, { type, payload = {} }) => {
         ...state,
         list: state.list.map((post) => {
           if (post.id === payload) return { ...post, visited: true };
+
           return post;
         }),
         selected: state.list.find((post) => post.id === payload),
