@@ -1,82 +1,35 @@
 {
   "env": {
-    "browser": false,
-    "es2021": true,
-    "node": true
+    "browser": true,
+    "es2021": true
   },
-  "extends": [
-    "plugin:react/recommended",
-    "plugin:prettier/recommended",
-    "plugin:react-hooks/recommended"
-  ],
-  "plugins": ["react", "prettier", "import"],
+  "extends": ["plugin:react/recommended", "airbnb"],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 12,
+    "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  },
+  "plugins": ["react", "@typescript-eslint"],
   "rules": {
-    // "react/display-name": "off",
-    // "no-console": "off",
-    // "react/prop-types": "off",
-    // "prettier/prettier": [
-    //   "warn",
-    //   {
-    //     "endOfLine": "auto",
-    //     "trailingComma": "none",
-    //     "semi": true,
-    //     "tabWidth": 2,
-    //     "singleQuote": false,
-    //     "bracketSpacing": true
-    //   }
-    // ],
-    // "no-unused-vars": [
-    //   "warn",
-    //   {
-    //     "args": "after-used",
-    //     "ignoreRestSiblings": false,
-    //     "argsIgnorePattern": "^_.*?$"
-    //   }
-    // ],
-    // "import/order": [
-    //   "warn",
-    //   {
-    //     "pathGroups": [
-    //       {
-    //         "pattern": "~/**",
-    //         "group": "external",
-    //         "position": "after"
-    //       }
-    //     ],
-    //     "newlines-between": "always"
-    //   }
-    // ],
-    // "react/self-closing-comp": "warn",
-    // "react/jsx-sort-props": [
-    //   "warn",
-    //   {
-    //     "callbacksLast": true,
-    //     "shorthandFirst": true,
-    //     "noSortAlphabetically": false,
-    //     "reservedFirst": true
-    //   }
-    // ],
-    // "padding-line-between-statements": [
-    //   "warn",
-    //   { "blankLine": "always", "prev": "*", "next": "return" },
-    //   { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
-    //   {
-    //     "blankLine": "any",
-    //     "prev": ["const", "let", "var"],
-    //     "next": ["const", "let", "var"]
-    //   }
-    // ]
+    "default-param-last": "off",
+    "import/prefer-default-export": "off",
+    "quotes": ["error", "double"],
+    "max-len": ["error", { "code": 120 }],
+    "react/jsx-filename-extension": [
+      1,
+      { "extensions": [".js", ".jsx", "ts", "tsx"] }
+    ],
+    "import/extensions": ["error", { "tsx": "never", "ts": "never" }],
+    "react/require-default-props": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   }
 }

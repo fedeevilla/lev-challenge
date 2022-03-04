@@ -4,13 +4,13 @@ import {
   FETCH_POSTS_REJECTED,
   DELETE_POST_RESOLVED,
   SELECT_POST_RESOLVED,
-  DELETE_ALL_POSTS_RESOLVED
+  DELETE_ALL_POSTS_RESOLVED,
 } from "../actions/posts";
 
 const initialState = {
   list: [],
   isFetching: false,
-  selected: null
+  selected: null,
 };
 
 export const posts = (state = initialState, { type, payload = {} }) => {
@@ -18,33 +18,33 @@ export const posts = (state = initialState, { type, payload = {} }) => {
     case FETCH_POSTS_STARTED:
       return {
         ...state,
-        isFetching: true
+        isFetching: true,
       };
     case FETCH_POSTS_RESOLVED:
       return {
         ...state,
         list: payload,
-        isFetching: false
+        isFetching: false,
       };
     case FETCH_POSTS_REJECTED:
       return {
         ...state,
-        isFetching: false
+        isFetching: false,
       };
     case DELETE_POST_RESOLVED:
       return {
         ...state,
         list: state.list.filter((post) => post.id !== payload),
-        selected: state.selected?.id === payload ? null : state.selected
+        selected: state.selected?.id === payload ? null : state.selected,
       };
     case SELECT_POST_RESOLVED:
       return {
         ...state,
         list: state.list.map((post) => {
           if (post.id === payload) return { ...post, visited: true };
-          else return post;
+          return post;
         }),
-        selected: state.list.find((post) => post.id === payload)
+        selected: state.list.find((post) => post.id === payload),
       };
     case DELETE_ALL_POSTS_RESOLVED:
       return initialState;
