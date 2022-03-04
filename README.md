@@ -1,46 +1,59 @@
-# Getting Started with Create React App
+# Lev Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+_This project was developed with React, Typescript and Redux._
 
-## Available Scripts
+## Instructions 🚀
 
-In the project directory, you can run:
+You should clone this repository using the following script:
 
-### `npm start`
+```
+git clone https://github.com/fedeevilla/lev-challenge.git
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Installation 🔧
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Just run the following commands. It's easy!
 
-### `npm test`
+```
+npm install & npm run start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Also, It has Cypress Tests
 
-### `npm run build`
+You should run this script and a new Cypress console will appear:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+npm run test
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Screenshot](https://res.cloudinary.com/dml0ec1xe/image/upload/v1646418078/gxb7b1hwu5dhmhl9tx9u.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This is an example with all Tests Passed ✅ :
 
-### `npm run eject`
+![Screenshot](https://res.cloudinary.com/dml0ec1xe/image/upload/v1646417893/j7zvdrn171nrdy5q1v8j.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Also, on every PR commit, a Github Action will run checking with theses tests the quality of the application:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Screenshot](https://res.cloudinary.com/dml0ec1xe/image/upload/v1646417892/y4njmikhxycktwowughe.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Deploy 📦
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+I've decided to use Netlify because it has a simple Installation and Configuration flow. Netlify allows us that on every commit into `main` a new deploy runs upgrading the Site page. Also it provides us Preview Deploys, like the followings:
 
-## Learn More
+- First-day work: https://deploy-preview-1--lev-challenge.netlify.app/
+- Live demo on: https://lev-challenge.netlify.app/
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9b3fc7f9-5dc5-474b-9d76-fd9bbcfac191/deploy-status)](https://app.netlify.com/sites/lev-challenge/deploys)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Build-with 🛠️
+
+- React
+- Typescript
+- Redux
+- Cypress
+- ESLint
+- Prettier
+
+## Author ✒️
+
+- **Federico Villa** - [fedeevilla](https://github.com/fedeevilla)
