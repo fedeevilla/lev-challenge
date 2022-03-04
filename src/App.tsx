@@ -31,7 +31,9 @@ const App = (): JSX.Element => {
         {selected ? (
           <PostDetails post={selected} />
         ) : (
-          <h2 className="label-result">Select a post from the list</h2>
+          <h2 className="label-result" style={{ color: "red" }}>
+            Select a post from the list!
+          </h2>
         )}
       </div>
     </div>

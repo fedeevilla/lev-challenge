@@ -9,13 +9,19 @@
 }
 
 .post-list {
-  max-width: 500px;
-  width: 100%;
+  min-width: 400px;
+  width: 30%;
   gap: 8px;
   display: flex;
   flex-direction: column;
   border-right: 1px solid black;
   min-height: 100vh;
+}
+
+@media (max-width: 800px) {
+  .post-list {
+    display: none;
+  }
 }
 
 .label-result {
