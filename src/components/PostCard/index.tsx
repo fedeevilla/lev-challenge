@@ -37,11 +37,11 @@ const PostCard = ({ post }: { post: IPost }): JSX.Element => {
             {!post.visited && <span className="post-card-seen">New!</span>}
           </div>
           <Button
+            className="dismiss-button"
             styleType="clear"
             onClick={() => handleDelete()}
-            className="dismiss-button"
           >
-            <FontAwesomeIcon icon={faXmarkCircle} size="lg" color="red" />
+            <FontAwesomeIcon color="red" icon={faXmarkCircle} size="lg" />
           </Button>
         </div>
         <div className="post-card-content">

@@ -32,36 +32,5 @@ module.exports = {
         argsIgnorePattern: "^_.*?$",
       },
     ],
-    // "import/order": [
-    //   "warn",
-    //   {
-    //     groups: [
-    //       "type",
-    //       "builtin",
-    //       "object",
-    //       "external",
-    //       "internal",
-    //       "parent",
-    //       "sibling",
-    //       "index",
-    //     ],
-    //     pathGroups: [
-    //       {
-    //         pattern: "~/**",
-    //         group: "external",
-    //         position: "after",
-    //       },
-    //     ],
-    //     "newlines-between": "always",
-    //   },
-    // ],
-    // "react/jsx-sort-props": [
-    //   "warn",
-    //   {
-    //     callbacksLast: true,
-    //     noSortAlphabetically: false,
-    //     reservedFirst: true,
-    //   },
-    // ],
   },
 };
