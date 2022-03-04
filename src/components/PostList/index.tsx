@@ -27,7 +27,9 @@ const PostList = (): JSX.Element => {
     <div className="post-list">
       {list.length === 0 ? (
         <div className="label-container">
-          <h2 className="label-result">No results</h2>
+          <h2 className="label-result" data-test="no-results-label">
+            No results
+          </h2>
           <Button onClick={() => dispatch(fetchPosts())}>Load TOP posts</Button>
         </div>
       ) : (

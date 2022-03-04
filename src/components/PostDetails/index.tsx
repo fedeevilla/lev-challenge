@@ -6,7 +6,9 @@ import "./styles.scss";
 const PostDetails = ({ post }: { post: IPost }): JSX.Element => {
   return (
     <div className="post-details-container">
-      <h1 className="title-post">{post?.title}</h1>
+      <h1 className="title-post" data-test="title-post">
+        {post?.title}
+      </h1>
       {post?.created && post?.author && (
         <h3 className="created-post">
           {`(${post?.author} - ${moment(post?.created).format(

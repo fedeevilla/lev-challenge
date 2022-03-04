@@ -27,7 +27,7 @@ const PostCard = ({ post }: { post: IPost }): JSX.Element => {
 
   return (
     <>
-      <div className="post-card-container">
+      <div className="post-card-container" data-test="post-card-item">
         <div className="post-card-header">
           <div>
             <span className="post-card-author">{post.author}</span>
