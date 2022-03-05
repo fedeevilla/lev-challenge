@@ -16,6 +16,10 @@ const PostList = (): JSX.Element => {
 
   const handleDismissAll = () => {
     dispatch(dismissAllPosts());
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   const handleShowMore = () => {
@@ -24,6 +28,16 @@ const PostList = (): JSX.Element => {
 
   const renderedList = list.slice(0, countPosts);
 
+  const LoadTopButton = () => (
+    <Button
+      onClick={() => dispatch(fetchPosts(true))}
+      styleType="success"
+      ariaLabel="Load TOP posts"
+    >
+      Load TOP posts
+    </Button>
+  );
+
   return (
     <div className="post-list">
       {list.length === 0 ? (
@@ -31,53 +45,38 @@ const PostList = (): JSX.Element => {
           <h2 className="label-result" data-test="no-results-label">
             No results
           </h2>
-          <Button
-            onClick={() => dispatch(fetchPosts(true))}
-            styleType="success"
-            ariaLabel="Load TOP posts"
-          >
-            Load TOP posts
-          </Button>
+          <LoadTopButton />
         </div>
       ) : (
-        <AnimatePresence>
-          {renderedList.map((post) => (
-            <motion.div
-              key={post.id}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <PostCard post={post} />
-            </motion.div>
-          ))}
-        </AnimatePresence>
-      )}
-      {list.length > 0 && (
-        <div className="footer-buttons">
-          <Button
-            onClick={() => handleDismissAll()}
-            styleType="danger"
-            ariaLabel="Dismiss All Posts"
-          >
-            Dismiss All Posts
-          </Button>
-          {countPosts < list.length && (
+        <>
+          <AnimatePresence>
+            {renderedList.map((post) => (
+              <motion.div
+                key={post.id}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <PostCard post={post} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+          <div className="footer-buttons">
             <Button
-              onClick={() => handleShowMore()}
-              ariaLabel="Show More Posts"
+              onClick={handleDismissAll}
+              styleType="danger"
+              ariaLabel="Dismiss All Posts"
             >
-              Show More Posts
+              Dismiss All Posts
             </Button>
-          )}
-          <Button
-            onClick={() => dispatch(fetchPosts(true))}
-            styleType="success"
-            ariaLabel="Load TOP posts"
-          >
-            Load TOP posts
-          </Button>
-        </div>
+            {countPosts < list.length && (
+              <Button onClick={handleShowMore} ariaLabel="Show More Posts">
+                Show More Posts
+              </Button>
+            )}
+            <LoadTopButton />
+          </div>
+        </>
       )}
     </div>
   );

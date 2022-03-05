@@ -39,7 +39,7 @@ const PostCard = ({ post }: IPostCard): JSX.Element => {
           <Button
             className="dismiss-button"
             styleType="clear"
-            onClick={() => handleDelete()}
+            onClick={handleDelete}
             ariaLabel="Dismiss Post"
           >
             <FontAwesomeIcon color="#b20d0d" icon={faXmarkCircle} size="lg" />
@@ -63,7 +63,7 @@ const PostCard = ({ post }: IPostCard): JSX.Element => {
           <Button
             styleType="success"
             className="viewpost-button"
-            onClick={() => handleSelect()}
+            onClick={handleSelect}
             ariaLabel="View Post"
           >
             View Post
