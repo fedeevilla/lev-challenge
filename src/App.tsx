@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import ErrorBoundary from "./components/ErrorBoundary";
+import NavBar from "./components/NavBar";
 import PostDetails from "./components/PostDetails";
 import PostList from "./components/PostList";
 import Spinner from "./components/Spinner";
 import { useSelector } from "./hooks/useSelector";
 import { fetchPosts } from "./store/actions/posts";
-
 import "./styles.scss";
 
 const App = (): JSX.Element => {
@@ -28,7 +28,7 @@ const App = (): JSX.Element => {
 
   return (
     <ErrorBoundary>
-      <div className="nav-bar">Lev Challenge</div>
+      <NavBar />
       <div className="app">
         <PostList />
         <div className="post-details">
