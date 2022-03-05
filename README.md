@@ -36,12 +36,19 @@ Also, on every PR commit, a Github Action will run checking with theses tests th
 
 ![Screenshot](https://res.cloudinary.com/dml0ec1xe/image/upload/v1646417892/y4njmikhxycktwowughe.png)
 
+### Code clean
+
+I've added Husky + Lint-staged flow, in order to keep safe our code. They check errors on pre-commit and pre-push events.
+
+![Screenshot](https://res.cloudinary.com/dml0ec1xe/image/upload/v1646486266/pxtrkefcot52cxz5vfds.png)
+
 ## Deploy 📦
 
 I've decided to use Netlify because it has a simple Installation and Configuration flow. Netlify allows us that on every commit into `main` a new deploy runs upgrading the Site page. Also it provides us Preview Deploys, like the followings:
 
 - First-day work: https://deploy-preview-1--lev-challenge.netlify.app/
 - Second-day work: https://deploy-preview-2--lev-challenge.netlify.app/
+- Third-day work: https://deploy-preview-3--lev-challenge.netlify.app/
 - Live demo on: https://lev-challenge.netlify.app/
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9b3fc7f9-5dc5-474b-9d76-fd9bbcfac191/deploy-status)](https://app.netlify.com/sites/lev-challenge/deploys)
