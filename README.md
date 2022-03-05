@@ -46,6 +46,12 @@ I've added Husky + Lint-staged flow, in order to keep safe our code. They check 
 
 ![Screenshot](https://res.cloudinary.com/dml0ec1xe/image/upload/v1646486266/pxtrkefcot52cxz5vfds.png)
 
+Also, I've added too ESLint rules that order correctly the imports lines by group and order alphabetically props components.
+
+[![Watch the video](https://res.cloudinary.com/dml0ec1xe/video/upload/v1646497351/mjrqhvzq4lnnooz5pqmn.png)](https://res.cloudinary.com/dml0ec1xe/video/upload/v1646497351/mjrqhvzq4lnnooz5pqmn.mp4)
+
+[![Watch the video](https://res.cloudinary.com/dml0ec1xe/video/upload/v1646497436/yxt6bbbpkwiwfzbogdqd.png)](https://res.cloudinary.com/dml0ec1xe/video/upload/v1646497436/yxt6bbbpkwiwfzbogdqd.mp4)
+
 ### Animations 💃🏻
 
 I've decided to use `framer-motion` as a main animation library because it is easy to install and use. Also, its bundle size is not so big. [Check it here](https://bundlephobia.com/package/framer-motion@6.2.8).

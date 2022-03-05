@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import { IPost, IRootState } from "../../types";
 
 export const FETCH_POSTS_STARTED = "FETCH_POSTS_STARTED";
@@ -63,6 +64,7 @@ export const deletePost =
     });
 
     const { posts }: IRootState = getState();
+
     localStorage.setItem("posts", JSON.stringify(posts.list));
     localStorage.setItem("selected", JSON.stringify(posts.selected));
   };
@@ -75,6 +77,7 @@ export const selectPost =
     });
 
     const { posts }: IRootState = getState();
+
     localStorage.setItem("posts", JSON.stringify(posts.list));
     localStorage.setItem("selected", JSON.stringify(posts.selected));
   };
@@ -84,6 +87,7 @@ export const dismissAllPosts = () => async (dispatch: any, getState: any) => {
     type: DELETE_ALL_POSTS_RESOLVED,
   });
   const { posts }: IRootState = getState();
+
   localStorage.setItem("posts", JSON.stringify(posts.list));
   localStorage.setItem("selected", JSON.stringify(posts.selected));
 };

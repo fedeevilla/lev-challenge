@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import moment from "moment";
+
 import ModalImage from "../ModalImage";
 import { useSelector } from "../../hooks/useSelector";
 import "./styles.scss";
@@ -48,9 +49,9 @@ const PostDetails = (): JSX.Element => {
           <h3 className="comments-post">{`${selectedPost?.num_comments} comments.`}</h3>
           {showModal && selectedPost.thumbnail && (
             <ModalImage
+              setsShowModal={setsShowModal}
               show={showModal}
               src={selectedPost.thumbnail}
-              setsShowModal={setsShowModal}
             />
           )}
         </div>

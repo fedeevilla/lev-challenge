@@ -1,6 +1,7 @@
 import React from "react";
-import { IButton } from "./types";
 import clsx from "clsx";
+
+import { IButton } from "./types";
 import "./styles.scss";
 
 const Button = ({

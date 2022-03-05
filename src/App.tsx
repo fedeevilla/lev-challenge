@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
+
 import ErrorBoundary from "./components/ErrorBoundary";
 import PostDetails from "./components/PostDetails";
 import PostList from "./components/PostList";

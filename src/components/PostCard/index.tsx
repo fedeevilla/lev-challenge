@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import moment from "moment";
 import { useDispatch } from "react-redux";
-import { deletePost, selectPost } from "../../store/actions/posts";
-import ModalImage from "../ModalImage";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
-import Button from "../Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import ModalImage from "../ModalImage";
 import { IPostCard } from "../../types";
+import Button from "../Button";
+import { deletePost, selectPost } from "../../store/actions/posts";
 import "./styles.scss";
 
 const PostCard = ({ post }: IPostCard): JSX.Element => {
@@ -37,10 +38,10 @@ const PostCard = ({ post }: IPostCard): JSX.Element => {
             {!post.visited && <span className="post-card-seen">New!</span>}
           </div>
           <Button
+            ariaLabel="Dismiss Post"
             className="dismiss-button"
             styleType="clear"
             onClick={handleDelete}
-            ariaLabel="Dismiss Post"
           >
             <FontAwesomeIcon color="#b20d0d" icon={faXmarkCircle} size="lg" />
           </Button>
@@ -49,8 +50,8 @@ const PostCard = ({ post }: IPostCard): JSX.Element => {
           {post.thumbnail && (
             <img
               alt=""
-              src={post.thumbnail}
               className="thumbnail"
+              src={post.thumbnail}
               onClick={() => setsShowModal(true)}
             />
           )}
@@ -61,10 +62,10 @@ const PostCard = ({ post }: IPostCard): JSX.Element => {
             Comments: {post.num_comments}
           </span>
           <Button
-            styleType="success"
-            className="viewpost-button"
-            onClick={handleSelect}
             ariaLabel="View Post"
+            className="viewpost-button"
+            styleType="success"
+            onClick={handleSelect}
           >
             View Post
           </Button>
@@ -72,9 +73,9 @@ const PostCard = ({ post }: IPostCard): JSX.Element => {
       </div>
       {showModal && post.thumbnail && (
         <ModalImage
+          setsShowModal={setsShowModal}
           show={showModal}
           src={post.thumbnail}
-          setsShowModal={setsShowModal}
         />
       )}
     </>

@@ -1,10 +1,11 @@
 import React from "react";
+
 import { ISpinner } from "./types";
 import "./styles.scss";
 
 const Spinner = ({ label = "" }: ISpinner): JSX.Element => (
   <div className="spinner-container">
-    <div className="spinner"></div>
+    <div className="spinner" />
     {label && <h4 className="spinner-label">{label}</h4>}
   </div>
 );

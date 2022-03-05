@@ -9,6 +9,7 @@ class ErrorBoundary extends Component {
 
   render() {
     const { children } = this.props;
+
     if (this.state.error) {
       return (
         <div className="error-boundary-container">
@@ -17,6 +18,7 @@ class ErrorBoundary extends Component {
         </div>
       );
     }
+
     return children;
   }
 }

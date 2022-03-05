@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+
 import { dismissAllPosts, fetchPosts } from "../../store/actions/posts";
 import PostCard from "../PostCard";
 import Button from "../Button";
 import "./styles.scss";
 import { useSelector } from "../../hooks/useSelector";
+
 import { AnimatePresence, motion } from "framer-motion";
 
 const PER_PAGE = 10;
@@ -30,9 +32,9 @@ const PostList = (): JSX.Element => {
 
   const LoadTopButton = () => (
     <Button
-      onClick={() => dispatch(fetchPosts(true))}
-      styleType="success"
       ariaLabel="Load TOP posts"
+      styleType="success"
+      onClick={() => dispatch(fetchPosts(true))}
     >
       Load TOP posts
     </Button>
@@ -53,9 +55,9 @@ const PostList = (): JSX.Element => {
             {renderedList.map((post) => (
               <motion.div
                 key={post.id}
-                initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
+                initial={{ opacity: 0 }}
               >
                 <PostCard post={post} />
               </motion.div>
@@ -63,14 +65,14 @@ const PostList = (): JSX.Element => {
           </AnimatePresence>
           <div className="footer-buttons">
             <Button
-              onClick={handleDismissAll}
-              styleType="danger"
               ariaLabel="Dismiss All Posts"
+              styleType="danger"
+              onClick={handleDismissAll}
             >
               Dismiss All Posts
             </Button>
             {countPosts < list.length && (
-              <Button onClick={handleShowMore} ariaLabel="Show More Posts">
+              <Button ariaLabel="Show More Posts" onClick={handleShowMore}>
                 Show More Posts
               </Button>
             )}
