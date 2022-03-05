@@ -47,10 +47,6 @@
     "*.+(jsx|js|json|css|scss|md|tsx|ts)": [
       "yarn prettier:fix",
       "git add"
-    ],
-    "!(*config).+(js|jsx|tsx|ts)": [
-      "yarn lint:fix",
-      "git add"
     ]
   },
   "browserslist": {
