@@ -21,6 +21,7 @@ const PostList = (): JSX.Element => {
   const handleShowMore = () => {
     setCountPost((countPosts) => countPosts + PER_PAGE);
   };
+
   const renderedList = list.slice(0, countPosts);
 
   return (
@@ -30,7 +31,9 @@ const PostList = (): JSX.Element => {
           <h2 className="label-result" data-test="no-results-label">
             No results
           </h2>
-          <Button onClick={() => dispatch(fetchPosts())}>Load TOP posts</Button>
+          <Button onClick={() => dispatch(fetchPosts())} styleType="success">
+            Load TOP posts
+          </Button>
         </div>
       ) : (
         <AnimatePresence>
@@ -54,6 +57,12 @@ const PostList = (): JSX.Element => {
           {countPosts < list.length && (
             <Button onClick={() => handleShowMore()}>Show More Posts</Button>
           )}
+          <Button
+            onClick={() => dispatch(fetchPosts(true))}
+            styleType="success"
+          >
+            Load TOP posts
+          </Button>
         </div>
       )}
     </div>

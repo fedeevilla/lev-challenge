@@ -13,7 +13,7 @@ export const SELECT_POST_RESOLVED = "SELECT_POST_RESOLVED";
 const LIMIT = 50;
 const SUBREDDIT = "learnjavascript";
 
-export const fetchPosts = () => async (dispatch: any) => {
+export const fetchPosts = (forceLoad?: boolean) => async (dispatch: any) => {
   dispatch({
     type: FETCH_POSTS_STARTED,
   });
@@ -21,7 +21,7 @@ export const fetchPosts = () => async (dispatch: any) => {
     const localPosts = localStorage.getItem("posts");
     const postList = (localPosts ? JSON.parse(localPosts) : []) as IPost[];
 
-    if (postList.length === 0) {
+    if (postList.length === 0 || forceLoad) {
       const {
         data: {
           data: { children },
