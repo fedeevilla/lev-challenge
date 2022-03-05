@@ -16,13 +16,15 @@ const ModalImage = ({ show, src, setsShowModal }: IModalImage): JSX.Element => {
             <FontAwesomeIcon icon={faXmarkCircle} size="lg" color="red" />
           </Button>
         </div>
-        <img alt="" className="modal-image" src={src} />
-        <div className="download-container">
-          <a href={src} download target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={faDownload} size="lg" color="black" />{" "}
-            Download Image
-          </a>
-        </div>
+        {src && <img alt="" className="modal-image" src={src} />}
+        {src && (
+          <div className="download-container">
+            <a href={src} download target="_blank" rel="noreferrer">
+              <FontAwesomeIcon icon={faDownload} size="lg" color="black" />{" "}
+              Download Image
+            </a>
+          </div>
+        )}
       </section>
     </div>
   );

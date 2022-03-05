@@ -1,19 +1,17 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import PostDetails from "./components/PostDetails";
 import PostList from "./components/PostList";
 import Spinner from "./components/Spinner";
+import { useSelector } from "./hooks/useSelector";
 import { fetchPosts } from "./store/actions/posts";
-import { IRootState } from "./store/types";
 
 import "./styles.scss";
 
 const App = (): JSX.Element => {
   const dispatch = useDispatch();
-  const { isFetching, selected } = useSelector(
-    (state: IRootState) => state.posts
-  );
+  const { isFetching, selected } = useSelector(({ posts }) => posts);
 
   useEffect(() => {
     dispatch(fetchPosts());

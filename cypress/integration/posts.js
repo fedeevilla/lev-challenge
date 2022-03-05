@@ -46,7 +46,9 @@ describe("Posts List", () => {
     });
 
     cy.get("[data-test='post-card-item']").should("have.length", 10);
-    cy.get(":nth-child(2) > .post-card-header > .clear-button").click();
+    cy.get(
+      ':nth-child(2) > [data-test="post-card-item"] > .post-card-header > .clear-button'
+    ).click();
     cy.get("[data-test='post-card-item']").should("have.length", 10);
   });
 
@@ -56,7 +58,9 @@ describe("Posts List", () => {
     });
 
     cy.get("[data-test='post-card-item']").should("have.length", 10);
-    cy.get(":nth-child(1) > .post-card-footer > .success-button").click();
+    cy.get(
+      ':nth-child(1) > [data-test="post-card-item"] > .post-card-footer > .success-button'
+    ).click();
     cy.get("[data-test='select-post-item']").should("not.exist");
     cy.get("[data-test='title-post']").contains(
       postsList.data.children[0].data.title

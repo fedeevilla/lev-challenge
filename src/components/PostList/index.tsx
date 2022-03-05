@@ -1,17 +1,18 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { dismissAllPosts, fetchPosts } from "../../store/actions/posts";
-import { IRootState } from "../../store/types";
 import PostCard from "../PostCard";
 import Button from "../Button";
 import "./styles.scss";
+import { useSelector } from "../../hooks/useSelector";
+import { AnimatePresence, motion } from "framer-motion";
 
 const PER_PAGE = 10;
 
 const PostList = (): JSX.Element => {
   const dispatch = useDispatch();
-  const { list } = useSelector((state: IRootState) => state.posts);
-  const [countPosts, setCountPost] = useState(PER_PAGE);
+  const { list } = useSelector(({ posts }) => posts);
+  const [countPosts, setCountPost] = useState<number>(PER_PAGE);
 
   const handleDismissAll = () => {
     dispatch(dismissAllPosts());
@@ -20,7 +21,6 @@ const PostList = (): JSX.Element => {
   const handleShowMore = () => {
     setCountPost((countPosts) => countPosts + PER_PAGE);
   };
-
   const renderedList = list.slice(0, countPosts);
 
   return (
@@ -33,7 +33,18 @@ const PostList = (): JSX.Element => {
           <Button onClick={() => dispatch(fetchPosts())}>Load TOP posts</Button>
         </div>
       ) : (
-        renderedList.map((post) => <PostCard key={post.id} post={post} />)
+        <AnimatePresence>
+          {renderedList.map((post) => (
+            <motion.div
+              key={post.id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <PostCard post={post} />
+            </motion.div>
+          ))}
+        </AnimatePresence>
       )}
       {list.length > 0 && (
         <div className="footer-buttons">
