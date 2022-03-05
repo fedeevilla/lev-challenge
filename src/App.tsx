@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-
+import ErrorBoundary from "./components/ErrorBoundary";
 import PostDetails from "./components/PostDetails";
 import PostList from "./components/PostList";
 import Spinner from "./components/Spinner";
@@ -26,7 +26,7 @@ const App = (): JSX.Element => {
   }
 
   return (
-    <div>
+    <ErrorBoundary>
       <div className="nav-bar">Lev Challenge</div>
       <div className="app">
         <PostList />
@@ -34,7 +34,7 @@ const App = (): JSX.Element => {
           <PostDetails />
         </div>
       </div>
-    </div>
+    </ErrorBoundary>
   );
 };
 

@@ -52,6 +52,12 @@ I've decided to use `framer-motion` as a main animation library because it is ea
 
 [![Watch the video](https://res.cloudinary.com/dml0ec1xe/video/upload/v1646493653/vhhaicsizqt0ebxhsfxs.png)](https://res.cloudinary.com/dml0ec1xe/video/upload/v1646493653/vhhaicsizqt0ebxhsfxs.mp4)
 
+### ErrorBoundary Page 🛡
+
+I've added a simple ErrorBoundary Page in order to prevent and log crashes.
+
+![Screenshot](https://res.cloudinary.com/dml0ec1xe/image/upload/v1646495932/akp0f2i3eaj7vlkqjvtr.png)
+
 ## Deploy 📦
 
 I've decided to use Netlify because it has a simple Installation and Configuration flow. Netlify allows us that on every commit into `main` a new deploy runs upgrading the Site page. Also it provides us Preview Deploys, like the followings:
