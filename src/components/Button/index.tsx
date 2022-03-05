@@ -1,10 +1,12 @@
 import React from "react";
-import { IButton } from "./types";
 import clsx from "clsx";
+
+import { IButton } from "./types";
 import "./styles.scss";
 
 const Button = ({
   children,
+  ariaLabel,
   onClick = () => {},
   disabled = false,
   className = "",
@@ -29,6 +31,7 @@ const Button = ({
 
   return (
     <button
+      aria-label={ariaLabel}
       className={clsx(getStyleType(), className)}
       disabled={disabled}
       id={id}

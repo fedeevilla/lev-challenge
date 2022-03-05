@@ -4,6 +4,6 @@ import {
   useSelector as useAppSelector,
 } from "react-redux";
 
-import { IRootState } from "../store/types";
+import { IRootState } from "../types";
 
 export const useSelector: TypedUseSelectorHook<IRootState> = useAppSelector;

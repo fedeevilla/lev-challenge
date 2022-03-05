@@ -1,3 +1,4 @@
+import { IAction, IPostsState } from "../../types";
 import {
   FETCH_POSTS_RESOLVED,
   FETCH_POSTS_STARTED,
@@ -7,13 +8,13 @@ import {
   DELETE_ALL_POSTS_RESOLVED,
 } from "../actions/posts";
 
-const initialState = {
+const initialState: IPostsState = {
   list: [],
   isFetching: false,
   selected: null,
 };
 
-export const posts = (state = initialState, { type, payload = {} }) => {
+export const posts = (state = initialState, { type, payload }: IAction) => {
   switch (type) {
     case FETCH_POSTS_STARTED:
       return {

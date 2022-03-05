@@ -22,6 +22,16 @@
   padding: 8px;
 }
 
+@media (max-width: 400px) {
+  .modal-main {
+    max-width: 200px;
+  }
+
+  .footer-buttons {
+    flex-direction: column;
+  }
+}
+
 .display-block {
   display: block;
 }

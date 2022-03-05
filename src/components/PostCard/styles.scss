@@ -12,6 +12,7 @@
 @media (max-width: 800px) {
   .post-card-container {
     width: 200px;
+    height: 100%;
   }
 
   .post-card-content {
@@ -61,6 +62,9 @@
 .thumbnail {
   border-radius: 8px;
   margin-right: 12px;
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
 
   &:hover {
     cursor: pointer;
@@ -80,7 +84,7 @@
 
 .post-card-seen {
   margin-left: 10px;
-  color: red;
+  color: #b20d0d;
   font-weight: bold;
   font-size: 12px;
 }
