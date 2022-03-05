@@ -26,10 +26,13 @@ const App = (): JSX.Element => {
   }
 
   return (
-    <div className="app">
-      <PostList />
-      <div className="post-details">
-        <PostDetails />
+    <div>
+      <div className="nav-bar">Lev Challenge</div>
+      <div className="app">
+        <PostList />
+        <div className="post-details">
+          <PostDetails />
+        </div>
       </div>
     </div>
   );

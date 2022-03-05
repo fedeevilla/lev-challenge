@@ -1,11 +1,22 @@
 .app {
   display: flex;
+  margin-top: 64px;
 }
 
 @media (max-width: 800px) {
   .app {
     flex-direction: column;
   }
+}
+
+.nav-bar {
+  padding: 20px;
+  background-color: dimgray;
+  color: white;
+  font-size: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .post-details {
