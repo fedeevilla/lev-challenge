@@ -5,6 +5,7 @@ import PostCard from "../PostCard";
 import Button from "../Button";
 import "./styles.scss";
 import { useSelector } from "../../hooks/useSelector";
+import { AnimatePresence, motion } from "framer-motion";
 
 const PER_PAGE = 10;
 
@@ -32,7 +33,18 @@ const PostList = (): JSX.Element => {
           <Button onClick={() => dispatch(fetchPosts())}>Load TOP posts</Button>
         </div>
       ) : (
-        renderedList.map((post) => <PostCard key={post.id} post={post} />)
+        <AnimatePresence>
+          {renderedList.map((post) => (
+            <motion.div
+              key={post.id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <PostCard post={post} />
+            </motion.div>
+          ))}
+        </AnimatePresence>
       )}
       {list.length > 0 && (
         <div className="footer-buttons">

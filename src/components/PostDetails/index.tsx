@@ -29,9 +29,7 @@ const PostDetails = ({ post }: { post: IPost }): JSX.Element => {
         </div>
       )}
       {post?.selftext && <h3 className="selftext-post">{post?.selftext}</h3>}
-      {post?.num_comments && (
-        <h3 className="comments-post">{`${post?.num_comments} comments.`}</h3>
-      )}
+      <h3 className="comments-post">{`${post?.num_comments} comments.`}</h3>
       {showModal && post.thumbnail && (
         <ModalImage
           show={showModal}
