@@ -34,6 +34,7 @@ const PostList = (): JSX.Element => {
           <Button
             onClick={() => dispatch(fetchPosts(true))}
             styleType="success"
+            ariaLabel="Load TOP posts"
           >
             Load TOP posts
           </Button>
@@ -54,15 +55,25 @@ const PostList = (): JSX.Element => {
       )}
       {list.length > 0 && (
         <div className="footer-buttons">
-          <Button onClick={() => handleDismissAll()} styleType="danger">
+          <Button
+            onClick={() => handleDismissAll()}
+            styleType="danger"
+            ariaLabel="Dismiss All Posts"
+          >
             Dismiss All Posts
           </Button>
           {countPosts < list.length && (
-            <Button onClick={() => handleShowMore()}>Show More Posts</Button>
+            <Button
+              onClick={() => handleShowMore()}
+              ariaLabel="Show More Posts"
+            >
+              Show More Posts
+            </Button>
           )}
           <Button
             onClick={() => dispatch(fetchPosts(true))}
             styleType="success"
+            ariaLabel="Load TOP posts"
           >
             Load TOP posts
           </Button>

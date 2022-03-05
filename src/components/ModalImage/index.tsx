@@ -12,7 +12,11 @@ const ModalImage = ({ show, src, setsShowModal }: IModalImage): JSX.Element => {
     <div className={showHideClassName}>
       <section className="modal-main">
         <div className="button-container">
-          <Button onClick={() => setsShowModal(false)} styleType="clear">
+          <Button
+            onClick={() => setsShowModal(false)}
+            styleType="clear"
+            ariaLabel="Close Modal"
+          >
             <FontAwesomeIcon icon={faXmarkCircle} size="lg" color="red" />
           </Button>
         </div>
