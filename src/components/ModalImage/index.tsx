@@ -17,7 +17,7 @@ const ModalImage = ({ show, src, setsShowModal }: IModalImage): JSX.Element => {
             styleType="clear"
             ariaLabel="Close Modal"
           >
-            <FontAwesomeIcon icon={faXmarkCircle} size="lg" color="red" />
+            <FontAwesomeIcon icon={faXmarkCircle} size="lg" color="#b20d0d" />
           </Button>
         </div>
         {src && <img alt="" className="modal-image" src={src} />}

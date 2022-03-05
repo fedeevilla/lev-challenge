@@ -14,13 +14,13 @@ const PostDetails = (): JSX.Element => {
   return (
     <>
       {!selectedPost?.id ? (
-        <h2
+        <h1
           className="label-result"
           data-test="select-post-item"
           style={{ color: "red" }}
         >
           Select a post from the list!
-        </h2>
+        </h1>
       ) : (
         <div className="post-details-container">
           <h1 className="title-post" data-test="title-post">

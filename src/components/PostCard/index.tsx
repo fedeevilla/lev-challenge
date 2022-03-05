@@ -42,7 +42,7 @@ const PostCard = ({ post }: IPostCard): JSX.Element => {
             onClick={() => handleDelete()}
             ariaLabel="Dismiss Post"
           >
-            <FontAwesomeIcon color="red" icon={faXmarkCircle} size="lg" />
+            <FontAwesomeIcon color="#b20d0d" icon={faXmarkCircle} size="lg" />
           </Button>
         </div>
         <div className="post-card-content">
