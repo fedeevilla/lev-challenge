@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import moment from "moment";
-import { IPost } from "../PostCard/types";
-import "./styles.scss";
 import ModalImage from "../ModalImage";
+import { IPostDetails } from "./types";
+import "./styles.scss";
 
-const PostDetails = ({ post }: { post: IPost }): JSX.Element => {
+const PostDetails = ({ post }: IPostDetails): JSX.Element => {
   const [showModal, setsShowModal] = useState<boolean>(false);
 
   return (

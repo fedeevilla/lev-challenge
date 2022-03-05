@@ -8,3 +8,7 @@ export interface IPost {
   visited: boolean;
   selftext: string;
 }
+
+export interface IPostCard {
+  post: IPost;
+}

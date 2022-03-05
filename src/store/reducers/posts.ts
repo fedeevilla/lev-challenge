@@ -1,3 +1,4 @@
+import { IPost } from "../../components/PostCard/types";
 import {
   FETCH_POSTS_RESOLVED,
   FETCH_POSTS_STARTED,
@@ -6,14 +7,20 @@ import {
   SELECT_POST_RESOLVED,
   DELETE_ALL_POSTS_RESOLVED,
 } from "../actions/posts";
+import { IPosts } from "../types";
 
-const initialState = {
+const initialState: IPosts = {
   list: [],
   isFetching: false,
   selected: null,
 };
 
-export const posts = (state = initialState, { type, payload = {} }) => {
+interface IAction {
+  type: string;
+  payload?: IPosts | IPost | string;
+}
+
+export const posts = (state = initialState, { type, payload }: IAction) => {
   switch (type) {
     case FETCH_POSTS_STARTED:
       return {

@@ -4,7 +4,7 @@ export interface IButton {
   children: ReactNode;
   disabled?: boolean;
   className?: string;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: () => void;
   id?: string;
   type?: "button" | "submit" | "reset";
   styleType?: "primary" | "danger" | "clear" | "success";

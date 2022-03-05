@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import moment from "moment";
-import { IPost } from "./types";
+import { IPostCard } from "./types";
 import "./styles.scss";
 import { useDispatch } from "react-redux";
 import { deletePost, selectPost } from "../../store/actions/posts";
@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
 import Button from "../Button";
 
-const PostCard = ({ post }: { post: IPost }): JSX.Element => {
+const PostCard = ({ post }: IPostCard): JSX.Element => {
   const dispatch = useDispatch();
   const [showModal, setsShowModal] = useState<boolean>(false);
 

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { IPost } from "../../components/PostCard/types";
 
 export const FETCH_POSTS_STARTED = "FETCH_POSTS_STARTED";
 export const FETCH_POSTS_RESOLVED = "FETCH_POSTS_RESOLVED";
@@ -11,7 +12,7 @@ export const SELECT_POST_RESOLVED = "SELECT_POST_RESOLVED";
 const LIMIT = 50;
 const SUBREDDIT = "learnjavascript";
 
-export const fetchPosts = () => async (dispatch) => {
+export const fetchPosts = () => async (dispatch: any) => {
   dispatch({
     type: FETCH_POSTS_STARTED,
   });
@@ -27,14 +28,13 @@ export const fetchPosts = () => async (dispatch) => {
   try {
     dispatch({
       type: FETCH_POSTS_RESOLVED,
-      payload: children.map(({ data }) => ({
+      payload: children.map(({ data }: { data: IPost }) => ({
         ...data,
         thumbnail: data.thumbnail === "self" ? null : data.thumbnail,
         created: data.created * 1000,
       })),
     });
   } catch (e) {
-    // eslint-disable-next-line no-console
     console.error(e);
     dispatch({
       type: FETCH_POSTS_REJECTED,
@@ -42,21 +42,21 @@ export const fetchPosts = () => async (dispatch) => {
   }
 };
 
-export const deletePost = (idPost) => async (dispatch) => {
+export const deletePost = (idPost: string) => async (dispatch: any) => {
   dispatch({
     type: DELETE_POST_RESOLVED,
     payload: idPost,
   });
 };
 
-export const selectPost = (idPost) => async (dispatch) => {
+export const selectPost = (idPost: string) => async (dispatch: any) => {
   dispatch({
     type: SELECT_POST_RESOLVED,
     payload: idPost,
   });
 };
 
-export const dismissAllPosts = () => async (dispatch) => {
+export const dismissAllPosts = () => async (dispatch: any) => {
   dispatch({
     type: DELETE_ALL_POSTS_RESOLVED,
   });

@@ -2,8 +2,8 @@ import React from "react";
 import { faDownload, faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "../Button";
-import "./styles.scss";
 import { IModalImage } from "./types";
+import "./styles.scss";
 
 const ModalImage = ({ show, src, setsShowModal }: IModalImage): JSX.Element => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
