@@ -18,7 +18,7 @@ Just run the following commands. It's easy!
 npm install & npm run start
 ```
 
-### Also, It has Cypress Tests
+### Also, it has Cypress Tests 🚨
 
 You should run this script and a new Cypress console will appear:
 
@@ -36,17 +36,17 @@ Also, on every PR commit, a Github Action will run checking with theses tests th
 
 ![Screenshot](https://res.cloudinary.com/dml0ec1xe/image/upload/v1646417892/y4njmikhxycktwowughe.png)
 
-### App State-preservation/restoration
+### App State-preservation/restoration 🔄
 
 I've added the possibility to save the Redux State into `localStorage`. So, if the user refreshes the page the data will be the same.
 
-### Clean code
+### Clean code 💅🏻
 
 I've added Husky + Lint-staged flow, in order to keep safe our code. They check errors on pre-commit and pre-push events.
 
 ![Screenshot](https://res.cloudinary.com/dml0ec1xe/image/upload/v1646486266/pxtrkefcot52cxz5vfds.png)
 
-### Animations
+### Animations 💃🏻
 
 I've decided to use `framer-motion` as a main animation library because it is easy to install and use. Also, its bundle size is not so big. [Check it here](https://bundlephobia.com/package/framer-motion@6.2.8).
 
@@ -72,6 +72,6 @@ I've decided to use Netlify because it has a simple Installation and Configurati
 - ESLint
 - Prettier
 
-## Author ✒️
+## Author 👨🏻‍💻
 
 - **Federico Villa** - [fedeevilla](https://github.com/fedeevilla)
