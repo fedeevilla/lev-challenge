@@ -11,7 +11,7 @@ import "./styles.scss";
 
 const App = (): JSX.Element => {
   const dispatch = useDispatch();
-  const { isFetching, selected } = useSelector(({ posts }) => posts);
+  const { isFetching } = useSelector(({ posts }) => posts);
 
   useEffect(() => {
     dispatch(fetchPosts());
@@ -29,17 +29,7 @@ const App = (): JSX.Element => {
     <div className="app">
       <PostList />
       <div className="post-details">
-        {selected ? (
-          <PostDetails post={selected} />
-        ) : (
-          <h2
-            className="label-result"
-            data-test="select-post-item"
-            style={{ color: "red" }}
-          >
-            Select a post from the list!
-          </h2>
-        )}
+        <PostDetails />
       </div>
     </div>
   );

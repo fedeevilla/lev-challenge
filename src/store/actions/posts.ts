@@ -1,5 +1,6 @@
 import axios from "axios";
 import { IPost } from "../../components/PostCard/types";
+import { IRootState } from "../types";
 
 export const FETCH_POSTS_STARTED = "FETCH_POSTS_STARTED";
 export const FETCH_POSTS_RESOLVED = "FETCH_POSTS_RESOLVED";
@@ -16,24 +17,37 @@ export const fetchPosts = () => async (dispatch: any) => {
   dispatch({
     type: FETCH_POSTS_STARTED,
   });
-
-  const {
-    data: {
-      data: { children },
-    },
-  } = await axios.get(
-    `https://www.reddit.com/r/${SUBREDDIT}/top.json?limit=${LIMIT}`
-  );
-
   try {
-    dispatch({
-      type: FETCH_POSTS_RESOLVED,
-      payload: children.map(({ data }: { data: IPost }) => ({
+    const localPosts = localStorage.getItem("posts");
+    const postList = (localPosts ? JSON.parse(localPosts) : []) as IPost[];
+
+    if (postList.length === 0) {
+      const {
+        data: {
+          data: { children },
+        },
+      } = await axios.get(
+        `https://www.reddit.com/r/${SUBREDDIT}/top.json?limit=${LIMIT}`
+      );
+
+      const result: IPost[] = children.map(({ data }: { data: IPost }) => ({
         ...data,
         thumbnail: data.thumbnail === "self" ? null : data.thumbnail,
         created: data.created * 1000,
-      })),
-    });
+      }));
+
+      dispatch({
+        type: FETCH_POSTS_RESOLVED,
+        payload: result,
+      });
+      localStorage.setItem("posts", JSON.stringify(result));
+    } else {
+      dispatch({
+        type: FETCH_POSTS_RESOLVED,
+        payload: postList,
+      });
+      localStorage.setItem("posts", JSON.stringify(postList));
+    }
   } catch (e) {
     console.error(e);
     dispatch({
@@ -42,22 +56,35 @@ export const fetchPosts = () => async (dispatch: any) => {
   }
 };
 
-export const deletePost = (idPost: string) => async (dispatch: any) => {
-  dispatch({
-    type: DELETE_POST_RESOLVED,
-    payload: idPost,
-  });
-};
+export const deletePost =
+  (idPost: string) => async (dispatch: any, getState: any) => {
+    dispatch({
+      type: DELETE_POST_RESOLVED,
+      payload: idPost,
+    });
 
-export const selectPost = (idPost: string) => async (dispatch: any) => {
-  dispatch({
-    type: SELECT_POST_RESOLVED,
-    payload: idPost,
-  });
-};
+    const { posts } = getState();
+    localStorage.setItem("posts", JSON.stringify(posts.list));
+    localStorage.setItem("selected", JSON.stringify(posts.selected));
+  };
 
-export const dismissAllPosts = () => async (dispatch: any) => {
+export const selectPost =
+  (idPost: string) => async (dispatch: any, getState: any) => {
+    dispatch({
+      type: SELECT_POST_RESOLVED,
+      payload: idPost,
+    });
+
+    const { posts }: IRootState = getState();
+    localStorage.setItem("posts", JSON.stringify(posts.list));
+    localStorage.setItem("selected", JSON.stringify(posts.selected));
+  };
+
+export const dismissAllPosts = () => async (dispatch: any, getState: any) => {
   dispatch({
     type: DELETE_ALL_POSTS_RESOLVED,
   });
+  const { posts } = getState();
+  localStorage.setItem("posts", JSON.stringify(posts.list));
+  localStorage.setItem("selected", JSON.stringify(posts.selected));
 };
