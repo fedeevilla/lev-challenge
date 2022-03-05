@@ -4,7 +4,7 @@ describe("Posts List", () => {
   beforeEach(() => {
     cy.intercept(
       "GET",
-      "https://www.reddit.com/r/learnjavascript/top.json?limit=50",
+      "https://www.reddit.com/r/sports/top.json?limit=50",
       postsList
     ).as("posts");
     cy.visit("/");

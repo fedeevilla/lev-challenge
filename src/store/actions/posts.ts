@@ -14,6 +14,10 @@ export const SELECT_POST_RESOLVED = "SELECT_POST_RESOLVED";
 const LIMIT = 50;
 const SUBREDDIT = "sports";
 
+interface IAxiosResponse {
+  data: { data: { children: { data: IPost }[] } };
+}
+
 export const fetchPosts =
   (forceLoad?: boolean) => async (dispatch: Dispatch<IAction>) => {
     dispatch({
@@ -28,11 +32,11 @@ export const fetchPosts =
           data: {
             data: { children },
           },
-        } = await axios.get(
+        }: IAxiosResponse = await axios.get(
           `https://www.reddit.com/r/${SUBREDDIT}/top.json?limit=${LIMIT}`
         );
 
-        const result: IPost[] = children.map(({ data }: { data: IPost }) => ({
+        const result = children.map(({ data }) => ({
           ...data,
           thumbnail: data.thumbnail === "self" ? null : data.thumbnail,
           created: data.created * 1000,
