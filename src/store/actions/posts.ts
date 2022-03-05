@@ -12,7 +12,7 @@ export const DELETE_ALL_POSTS_RESOLVED = "DELETE_ALL_POSTS_RESOLVED";
 export const SELECT_POST_RESOLVED = "SELECT_POST_RESOLVED";
 
 const LIMIT = 50;
-const SUBREDDIT = "learnjavascript";
+const SUBREDDIT = "worldnews";
 
 export const fetchPosts =
   (forceLoad?: boolean) => async (dispatch: Dispatch<IAction>) => {
