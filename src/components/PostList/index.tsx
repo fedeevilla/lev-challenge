@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { AnimatePresence, motion } from "framer-motion";
 
 import { dismissAllPosts, fetchPosts } from "../../store/actions/posts";
 import PostCard from "../PostCard";
 import Button from "../Button";
 import "./styles.scss";
 import { useSelector } from "../../hooks/useSelector";
-
-import { AnimatePresence, motion } from "framer-motion";
 
 const PER_PAGE = 10;
 
