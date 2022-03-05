@@ -1,6 +1,5 @@
 import axios from "axios";
-import { IPost } from "../../components/PostCard/types";
-import { IRootState } from "../types";
+import { IPost, IRootState } from "../../types";
 
 export const FETCH_POSTS_STARTED = "FETCH_POSTS_STARTED";
 export const FETCH_POSTS_RESOLVED = "FETCH_POSTS_RESOLVED";
@@ -63,7 +62,7 @@ export const deletePost =
       payload: idPost,
     });
 
-    const { posts } = getState();
+    const { posts }: IRootState = getState();
     localStorage.setItem("posts", JSON.stringify(posts.list));
     localStorage.setItem("selected", JSON.stringify(posts.selected));
   };
@@ -84,7 +83,7 @@ export const dismissAllPosts = () => async (dispatch: any, getState: any) => {
   dispatch({
     type: DELETE_ALL_POSTS_RESOLVED,
   });
-  const { posts } = getState();
+  const { posts }: IRootState = getState();
   localStorage.setItem("posts", JSON.stringify(posts.list));
   localStorage.setItem("selected", JSON.stringify(posts.selected));
 };

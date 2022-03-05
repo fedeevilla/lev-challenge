@@ -36,7 +36,11 @@ Also, on every PR commit, a Github Action will run checking with theses tests th
 
 ![Screenshot](https://res.cloudinary.com/dml0ec1xe/image/upload/v1646417892/y4njmikhxycktwowughe.png)
 
-### Code clean
+### App State-preservation/restoration
+
+I've added the possibility to save the Redux State into `localStorage`. So, if the user refreshes the page the data will be the same.
+
+### Clean code
 
 I've added Husky + Lint-staged flow, in order to keep safe our code. They check errors on pre-commit and pre-push events.
 

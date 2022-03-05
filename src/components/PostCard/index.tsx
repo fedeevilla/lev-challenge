@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import moment from "moment";
-import { IPostCard } from "./types";
-import "./styles.scss";
 import { useDispatch } from "react-redux";
 import { deletePost, selectPost } from "../../store/actions/posts";
 import ModalImage from "../ModalImage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
 import Button from "../Button";
+import { IPostCard } from "../../types";
+import "./styles.scss";
 
 const PostCard = ({ post }: IPostCard): JSX.Element => {
   const dispatch = useDispatch();

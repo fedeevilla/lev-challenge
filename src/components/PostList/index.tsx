@@ -31,7 +31,10 @@ const PostList = (): JSX.Element => {
           <h2 className="label-result" data-test="no-results-label">
             No results
           </h2>
-          <Button onClick={() => dispatch(fetchPosts())} styleType="success">
+          <Button
+            onClick={() => dispatch(fetchPosts(true))}
+            styleType="success"
+          >
             Load TOP posts
           </Button>
         </div>
