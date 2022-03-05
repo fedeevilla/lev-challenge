@@ -31,8 +31,7 @@
     "start": "react-scripts start",
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "eject": "react-scripts eject",
-    "lint": "eslint src --max-warnings 0",
-    "lint:fix": "eslint --fix",
+    "lint:fix": "eslint --fix --max-warnings 0",
     "test": "cypress open",
     "prettier:fix": "prettier src --write",
     "prettier:check": "prettier src --check"
@@ -46,6 +45,10 @@
   "lint-staged": {
     "*.+(jsx|js|json|css|scss|md|tsx|ts)": [
       "yarn prettier:fix",
+      "git add"
+    ],
+    "!(*config).+(js|jsx|tsx|ts)": [
+      "yarn lint:fix",
       "git add"
     ]
   },
